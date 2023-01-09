@@ -4,7 +4,7 @@ import axios from "axios";
 class AjaxRequest{
     constructor(){
         // 判断当前环境是否是在开发环境,如果是,设置请求的基础路径是http://localhost:3005
-        this.baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3005' :'/';
+        this.baseURL = process.env.NODE_ENV === 'development' ? '/api' :'/';
         // 设置请求过期时间，如果超过2s没有返回结果，提示用户请求超时
         this.timeout = 2000;
     }

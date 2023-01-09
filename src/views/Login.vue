@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <el-input style="width:200px" v-model="username"></el-input>
-    <el-button @click="login">登录</el-button>
+    <el-button class="dl" @click="login">登录</el-button>
   </div>
 </template>
 <script>
@@ -20,10 +20,15 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="less" scoped>
+// @import '../css/minx.less';
 .login{
   display: flex;
   align-items: center;
   justify-content: center;
+  .dl{
+    // color: red;
+    .color(red)
+  }
 }
 </style>
