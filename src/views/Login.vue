@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <el-input style="width:200px" v-model="username"></el-input>
+    <el-input class="in" v-model="username"></el-input>
     <el-button class="dl" @click="login">登录</el-button>
   </div>
 </template>
@@ -27,8 +27,18 @@ export default {
   align-items: center;
   justify-content: center;
   .dl{
-    // color: red;
-    .color(red)
+    // .color(red);
+    color: @baseColor3;
+    width: @baseWidth + 50px;
+  }
+  .in{
+    width: 200px;
+  }
+  @media @min768 {
+    .in{
+      width: 100px;
+      font-size: 2rem;
+    }
   }
 }
 </style>

@@ -1,3 +1,16 @@
+// 基础颜色1
+
+/*
+    @baseColor2 基础颜色2
+**/
+
+@import './color.less';
+
+@baseColor1:#112244;
+@baseColor2:#111;
+@importantColor: @baseColor1 + @baseColor2;
+@baseWidth:50px;
+@min768:~"(min-width:768px)";
 .color(@color){
-    color:@color
+    color:@importantColor
 }
