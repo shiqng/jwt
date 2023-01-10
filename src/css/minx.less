@@ -1,9 +1,7 @@
-// 基础颜色1
-
 /*
     @baseColor2 基础颜色2
 **/
-
+// 这个文件是一个less的混入，只能往里加新的混入，不可以改原有的混入！！！！！！！！！！！！！！
 @import './color.less';
 
 @baseColor1:#112244;
@@ -13,4 +11,104 @@
 @min768:~"(min-width:768px)";
 .color(@color){
     color:@importantColor
+}
+
+// 设置盒子宽高
+.wh(@width,@height) {
+    width: @width;
+    height: @height;
+}
+// 设置盒子为绝对定位,在父盒子右上角
+.positionLT(@left,@top){
+    position: absolute;
+    left: @left;
+    top: @top;
+}
+// 设置盒子为绝对定位,在父盒子右上角
+.positionLB(@left,@bottom){
+    position: absolute;
+    left: @left;
+    bottom: @bottom;
+}
+// 设置盒子为绝对定位,在父盒子右上角
+.positionRB(@right,@bottom){
+    position: absolute;
+    right: @right;
+    bottom: @bottom;
+}
+// 设置盒子为绝对定位,在父盒子右上角
+.positionRT(@right,@top){
+    position: absolute;
+    right: @right;
+    top: @top;
+}
+
+//设置盒子的背景
+.bgUrl(@url){
+    background: url(@url) no-repeat center center / 100% 100%;
+}
+
+//定位上下左右居中,translate的方式,放子盒子上，父盒子必须为相对定位
+.center() {  
+	position: absolute;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+//定位上下居中,translate的方式,放子盒子上，父盒子必须为相对定位
+.centerCui(){  
+	position: absolute;
+	top: 50%;
+    transform: translateY(-50%);
+}
+
+//定位左右居中,translate的方式,放子盒子上，父盒子必须为相对定位
+.centerShui(){  
+	position: absolute;
+	left: 50%;
+    transform: translateX(-50%);
+}
+// 设置父盒子为绝对定位,margin:auto;上下左右居中
+.positonMargin(){
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: auto;
+}
+// 设置父盒子布局为grid，子盒子只有一个的时候上下左右居中,多个的时候是左右居中，盒子均分盒子高度后居中，相当于justify-content：space-around;
+.centerGrid(){
+    display: grid;
+    place-items: center;
+}
+//定位上下左右居中,盒子模型的方式，放父盒子上，子盒子不动
+.centerAll(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+//定位上下居中,盒子模型的方式，放父盒子上，子盒子不动
+.centerCuiF(){
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+}
+
+//定位左右居中,盒子模型的方式，放父盒子上，子盒子不动
+.centerShuiF(){
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+}
+
+//position: abosulte; z-index: 2; img 移动端较多,触发浏览器GPU加速，使浏览器渲染能力成倍增长，从而消除图片锯齿状
+.compatibleStyle() {  
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -webkit-perspective: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    visibility: visible;
 }
